@@ -1,19 +1,28 @@
 <head>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <style>
+    button {
+      width: 100%;
+      height: 4em;
+      margin-top: 2em;
+    }
+  </style>
 </head>
 
 
 
 <body>
 
-  1: "딩딩딩딩.m4a",  <br>
+  
+  <!-- 1: "딩딩딩딩.m4a",  <br>
   2: "딩1.m4a", <br>
   3: "딩2.m4a",<br>
   4: "딩3.m4a",<br>
   5: "딩4.m4a",<br>
   w: "땡.m4a",<br>
   a: "전 어제 햄버거 먹었어요.m4a", <br>
-  s: "Recording is saved.mp3" <br>
+  s: "Recording is saved.mp3" <br> -->
 
   <script>
     var sources = {
@@ -29,6 +38,10 @@
 
     $("#info").html(sources);
 
+    for (const key in sources) {
+      $("body").append(`<button value="${key}">(${key}) ${sources[key]}</button><br>`);
+    }
+
     var audio = new Audio();
 
     $("body").on("keydown", e => {
@@ -37,6 +50,11 @@
         audio.play();
       }
     });
+
+    $("button").on("click", e=> {
+      audio.src = sources[$(e.target).val()];
+      audio.play();
+    })
 
   </script>
 
