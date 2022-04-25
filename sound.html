@@ -1,0 +1,43 @@
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+
+
+<body>
+
+  1: "딩딩딩딩.m4a",  <br>
+  2: "딩1.m4a", <br>
+  3: "딩2.m4a",<br>
+  4: "딩3.m4a",<br>
+  5: "딩4.m4a",<br>
+  w: "땡.m4a",<br>
+  a: "전 어제 햄버거 먹었어요.m4a", <br>
+  s: "Recording is saved.mp3" <br>
+
+  <script>
+    var sources = {
+      1: "딩딩딩딩.m4a",
+      2: "딩1.m4a",
+      3: "딩2.m4a",
+      4: "딩3.m4a",
+      5: "딩4.m4a",
+      w: "땡.mp3",
+      a: "전 어제 햄버거 먹었어요.m4a",
+      s: "Recording is saved.mp3"
+    };
+
+    $("#info").html(sources);
+
+    var audio = new Audio();
+
+    $("body").on("keydown", e => {
+      if (sources[e.key] !== undefined) {
+        audio.src = sources[e.key];
+        audio.play();
+      }
+    });
+
+  </script>
+
+</body>
